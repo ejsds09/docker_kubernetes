@@ -3,18 +3,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t lexworks/docker-react -f Dockerfile.dev .
+  - docker build -t erwin09/erwinsweb -f Dockerfile.dev .
 
 script:
-  - docker run lexworks/docker-react npm run test -- --coverage
+  - docker run erwin09/erwinsweb npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-west-2"
-  app: "docker"
-  env: "Docker-env"
-  bucket_name: "elasticbeanstalk-us-west-2-306476627547"
-  bucket_path: "docker"
+  region: "ap-southeast-1"
+  app: "erwinsweb"
+  env: "Erwinsweb-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-207398959169"
+  bucket_path: "erwinsweb"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
